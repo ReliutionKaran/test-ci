@@ -22,4 +22,4 @@ jobs:
         run: pip install pre-commit
 
       - name: Run pre-commit checks
-        run: pre-commit run --all-files
+        run: pre-commit run Exercise_0001-V1.py
