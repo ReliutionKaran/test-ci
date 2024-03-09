@@ -30,8 +30,9 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
+          username: ${{ secrets.EMAIL_ADDRESS }}
           password: ${{ secrets.EMAIL_PASSWORD }}
+          from: ${{ secrets.EMAIL_ADDRESS }}
+          to: karanh.reliution@gmail.com
           subject: Workflow Failed
           body: Workflow failed. Logs
-          to: karanh.reliution@gmail.com
