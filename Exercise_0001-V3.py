@@ -1,6 +1,6 @@
 # Category Class
 class Category:
-    def __init__(self, name, code, no_of_products, parent=None, display_name=None):
+    def __init__(self, name, code, no_of_products, parent=None, display_name=None)
         self.name = name
         self.code = code
         self.NOP = no_of_products
