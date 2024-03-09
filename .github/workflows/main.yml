@@ -28,5 +28,5 @@ jobs:
         if: failure()
         run: |
           echo "Workflow failed. Logs:" > log.txt
-          cat ${{ github.run_id }}/log.txt
+          cat $GITHUB_REPOSITORY/${{ github.run_id }}/log.txt
           cat log.txt | mail -s "Workflow Failed" karanh.reliution.com
