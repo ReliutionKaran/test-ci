@@ -11,9 +11,9 @@ def prepare_python_libraries():
     print(f"Manifest File List : {manifest_file_list}")
 
     for file_path in manifest_file_list:
-        print("File Path : " file_path)
+        print("File Path : ", file_path)
         libraries_info = extract_manifest_keys(file_path)
-        libraries_listextend(libraries_info)
+        libraries_list.extend(libraries_info)
         create_requirements(libraries_list)
     print(f"All External Dependency List : {list(set(libraries_list))}")
 
