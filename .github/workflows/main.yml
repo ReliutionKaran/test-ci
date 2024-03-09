@@ -32,7 +32,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_ADDRESS }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          from: ${{ secrets.EMAIL_ADDRESS }}
-          to: karanh.reliution@gmail.com
+          from: karanh.reliution@gmail.com
+          to: hermakaran9@gmail.com
           subject: Workflow Failed
           body: Workflow failed. Logs
