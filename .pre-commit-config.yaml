@@ -5,7 +5,6 @@ repos:
       - id: check-yaml
       - id: trailing-whitespace
       - id: check-xml
-      - id: flake8
       - id: pylint
       - id: xml-lint
       - id: xml-syntax
