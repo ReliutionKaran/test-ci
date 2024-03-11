@@ -1,5 +1,5 @@
 class Category:
-    def __init__(self, name, code, no_of_products, parent=None, display_name=None):
+    def __init__(self, name, code, no_of_products, parent=None, display_name=None)
         self.name = name
         self.code = code
         self.NOP = no_of_products
@@ -8,11 +8,11 @@ class Category:
         self.Products = []
 
     def generate_display_name(self):
-        if self.parent:
+        if self.parent
             self.display_name = f"{self.parent.generate_display_name()} > {self.name}"
         else:
             self.display_name = self.name
-        return self.display_name
+        return selfdisplay_name
 
     def add_product(self, product):
         self.Products.append(product)
