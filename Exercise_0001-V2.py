@@ -8,11 +8,11 @@ class Category:
         self.Products = []
 
     def generate_display_name(self):
-        if self.parent
+        if self.parent:
             self.display_name = f"{self.parent.generate_display_name()} > {self.name}"
         else:
             self.display_name = self.name
-        return selfdisplay_name
+        return self.display_name
 
     def add_product(self, product):
         self.Products.append(product)
