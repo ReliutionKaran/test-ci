@@ -1,6 +1,6 @@
 repos:
   - repo: git@github.com:ReliutionKaran/pre-commitcheck.git
-    rev: v2.3.0
+    rev: v2.43.0
     hooks:
       - id: check-yaml
       - id: trailing-whitespace
