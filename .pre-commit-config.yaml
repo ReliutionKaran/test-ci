@@ -4,6 +4,8 @@ repos:
     hooks:
       - id: check-yaml
       - id: trailing-whitespace
+    hooks-base-url: https://github.com/ReliutionKaran/pre-commitcheck.git
+    hooks-executable: pre-commit
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
