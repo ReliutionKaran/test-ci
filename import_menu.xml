@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <menuitem id="import_bom_stock"
-          name"Import BoM
+          name="Import BoM"
           parent="mrp.menu_mrp_bom"
           action="import_bom.action_import_bom_wizard"
           sequence="50"/>
