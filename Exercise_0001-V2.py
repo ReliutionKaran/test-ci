@@ -5,7 +5,7 @@ class Category:
         self.NOP = no_of_products
         self.parent = parent
         self.display_name = display_name
-        self.Products []
+        self.Products = []
 
     def generate_display_name(self):
         if self.parent:
