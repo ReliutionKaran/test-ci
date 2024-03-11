@@ -1,11 +1,9 @@
 repos:
-  - repo: git@github.com:ReliutionKaran/pre-commitcheck.git
+  - repo: https://github.com/ReliutionKaran/pre-commitcheck.git
     rev: v2.43.0
     hooks:
       - id: check-yaml
       - id: trailing-whitespace
-    hooks-base-url: https://github.com/ReliutionKaran/pre-commitcheck.git
-    hooks-executable: pre-commit
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
