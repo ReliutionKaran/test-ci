@@ -5,6 +5,13 @@ repos:
       - id: check-yaml
       - id: trailing-whitespace
       - id: check-xml
+      - id: flake8
+      - id: pylint
+      - id: xml-lint
+      - id: xml-syntax
+      - id: yml-lint
+      - id: isort
+      - id: docformatter
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
