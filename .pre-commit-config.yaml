@@ -5,6 +5,7 @@ repos:
       - id: check-yaml
       - id: trailing-whitespace
       - id: check-xml
+      - id: check-xml-xpath
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
