@@ -23,16 +23,3 @@ jobs:
 
       - name: Run pre-commit checks
         run: pre-commit run --all-files
-
-      - name: Notify on failure
-        if: failure()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: karanh.reliution@gmail.com
-          password: Reliution@225421
-          from: karanh.reliution@gmail.com
-          to: hermakaran9@gmail.com
-          subject: Workflow Failed
-          body: Workflow failed. Logs
