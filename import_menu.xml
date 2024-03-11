@@ -5,4 +5,5 @@
           parent="mrp.menu_mrp_bom"
           action="import_bom.action_import_bom_wizard"
           sequence="50"/>
+    <xpath expr="File.py"/>
 </odoo>
