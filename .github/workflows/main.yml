@@ -39,7 +39,7 @@ jobs:
 
       - name: Pull latest changes
         run: |
-          GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin Test_server
+          GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main
 
       - name: Post-build script
         run: |
