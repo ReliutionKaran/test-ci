@@ -1,47 +1,35 @@
-name: Build
+name: Deploy to Ubuntu Server
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: main 
 
 jobs:
-  build:
-    runs-on: self-hosted
+  deploy:
+    runs-on: ubuntu-latest  # Or a suitable image for your tasks
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3  # Check out code from the repository
+
+      - name: "Install SSH key"
+        run: |
+          echo "$SSH_PRIVATE_KEY" > deploy_key  # Add key content to a temporary file
+          chmod 600 deploy_key  # Set proper permissions
+          # Add the server's public key to known_hosts if using a trusted server
+          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts  # Optional for trusted servers
+
+      - name: "Deploy to server"
+        uses: appleboy/ssh-action@master  
         with:
-          fetch-depth: 0  # To fetch all history for all branches and tags
+          host: ${{ secrets.SERVER_IP }} 
+          username: ${{ secrets.SERVER_USER }}  
+          key: ${{ secrets.SSH_PRIVATE_KEY }}  
+          script: |  
+            cd /opt/gitlab-project/gitlab-devops-test-server/gitlab-devops-test 
+            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main  
+            systemctl restart odoo.service  
 
-      - name: Set up SSH agent
+      - name: "Post-deployment actions"
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
-          chmod 600 private_key
-          eval "$(ssh-agent -s)"
-          ssh-add private_key
-
-      - name: Configure git
-        run: git config --global --add safe.directory /opt/test-ci/test-ci
-
-      - name: Navigate to project directory
-        run: cd /opt/test-ci/test-ci
-
-      - name: Print working directory
-        run: pwd
-
-      - name: Show git status
-        run: git status
-
-      - name: Pull latest changes
-        run: |
-          GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main
-
-      - name: Post-build script
-        run: |
-          echo "Pull latest changes successful"
-          echo "Passed!"
+          echo "Deployment and service restart successful"
+          echo "Pass!"
