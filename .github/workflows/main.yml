@@ -25,5 +25,5 @@ jobs:
             ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
             git config --global --add safe.directory /opt/test-ci
             cd /opt/test-ci
-            ssh -o StrictHostKeyChecking=no git pull origin main
+            'ssh -o StrictHostKeyChecking=no' git pull origin main
           EOF
