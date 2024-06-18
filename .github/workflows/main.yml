@@ -13,10 +13,9 @@ jobs:
 
       - name: "Install SSH key"
         run: |
-          echo "$SSH_PRIVATE_KEY" > deploy_key  # Add key content to a temporary file
-          chmod 600 deploy_key  # Set proper permissions
-          # Add the server's public key to known_hosts if using a trusted server
-          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts  # Optional for trusted servers
+          echo "$SSH_PRIVATE_KEY" > deploy_key  
+          chmod 600 deploy_key  
+          ssh-keyscan ${{ secrets.SERVER_IP }} >> /root/.ssh/known_hosts
 
       - name: "Deploy to server"
         uses: appleboy/ssh-action@master  
