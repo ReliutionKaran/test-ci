@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy over SSH
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 "echo 'Hello'"
+          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 "echo 'Helloo'"
