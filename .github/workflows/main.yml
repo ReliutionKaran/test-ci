@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy to Server via SSH
 
 on:
   push:
@@ -10,21 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy to Server
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy over SSH
         run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H your_server_ip >> ~/.ssh/known_hosts  # Replace with your server's IP or hostname
-          ssh -i ~/.ssh/id_rsa user@your_server_ip << 'EOF'
-          cd /path/to/your/app
-          git pull origin main
-          npm install
-          npm run build
-          pm2 restart app_name
-          EOF
+          ssh -o StrictHostKeyChecking=no ubuntu@13.126.114.136 "echo 'Hello'"
