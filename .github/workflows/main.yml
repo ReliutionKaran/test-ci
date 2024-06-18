@@ -44,4 +44,4 @@ jobs:
       - name: Post-build script
         run: |
           echo "Pull latest changes successful"
-          echo "Pass!"
+          echo "Passed!"
