@@ -26,4 +26,5 @@ jobs:
             git config --global --add safe.directory /opt/test-ci
             cd /opt/test-ci
             GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main
+            sudo systemctl restart metabase.service
           EOF
