@@ -23,7 +23,7 @@ jobs:
 
       - name: "Deploy to server"
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             cd /opt/test-ci/test-ci
             GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main 
             sudo systemctl restart odoo
