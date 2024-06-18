@@ -21,7 +21,6 @@ jobs:
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts 
           eval "$(ssh-agent -s)"  
           ssh-add ~/.ssh/deploy_key
-          ssh-add ~/.ssh/deploy_key.pub
           ssh-add -l  
 
       - name: "Deploy to server"
