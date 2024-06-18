@@ -25,8 +25,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}  
           key: ${{ secrets.SSH_PRIVATE_KEY }}  
           script: |  
-            cd /opt/gitlab-project/gitlab-devops-test-server/gitlab-devops-test 
-            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main  
+            cd /opt/test-ci/test-ci
+            GIT_SSH_COMMAND=git pull origin main  
             systemctl restart odoo.service  
 
       - name: "Post-deployment actions"
