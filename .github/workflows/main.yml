@@ -1,25 +1,46 @@
-name: Pre-commit Checks
+name: Build
 
 on:
   push:
     branches:
-      - '*'
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  pre-commit:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: [self-hosted, Runner]
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          fetch-depth: 0  # To fetch all history for all branches and tags
 
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Set up SSH agent
+        run: |
+          eval "$(ssh-agent -s)"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
 
-      - name: Run pre-commit checks
-        run: pre-commit run --all-files
+      - name: Configure git
+        run: git config --global --add safe.directory /home/ubuntu/test-ci/test-ci
+
+      - name: Navigate to project directory
+        run: cd /home/ubuntu/test-ci/test-ci
+
+      - name: Print working directory
+        run: pwd
+
+      - name: Show git status
+        run: git status
+
+      - name: Pull latest changes
+        run: |
+          GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin Test_server
+
+      - name: Post-build script
+        run: |
+          echo "Pull latest changes successful"
+          echo "Pass!"
