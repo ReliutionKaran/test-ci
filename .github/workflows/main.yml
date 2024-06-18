@@ -20,7 +20,8 @@ jobs:
 
       - name: Deploy over SSH
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 "
-            cd /opt/test-ci/test-ci &&
-            git pull origin main 
-          "
+          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 << 'EOF'
+            cd /opt/test-ci
+            git status
+            git pull origin main
+          EOF
