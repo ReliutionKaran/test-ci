@@ -23,6 +23,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 << 'EOF'
             git config --global --add safe.directory /opt/test-ci
             cd /opt/test-ci
-            git status
-            git pull origin main
+            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main
           EOF
