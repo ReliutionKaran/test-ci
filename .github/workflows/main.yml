@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > deploy_key  
           chmod 600 deploy_key  
-          ssh-keyscan ${{ secrets.SERVER_IP }} >> /root/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: "Deploy to server"
         uses: appleboy/ssh-action@master  
