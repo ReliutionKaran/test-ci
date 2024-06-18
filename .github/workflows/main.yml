@@ -16,19 +16,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
           fetch-depth: 0  # To fetch all history for all branches and tags
 
       - name: Set up SSH agent
         run: |
           eval "$(ssh-agent -s)"
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 --decode | tr -d '\r' | ssh-add -
 
       - name: Configure git
-        run: git config --global --add safe.directory /home/ubuntu/test-ci/test-ci
+        run: git config --global --add safe.directory /opt/test-ci/test-ci
 
       - name: Navigate to project directory
-        run: cd /home/ubuntu/test-ci/test-ci
+        run: cd /opt/test-ci/test-ci
 
       - name: Print working directory
         run: pwd
