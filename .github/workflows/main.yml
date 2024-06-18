@@ -13,15 +13,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Add SSH Key to Agent
+      - name: Deploy to Server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-add ~/.ssh/id_rsa
-
-      - name: Deploy to Server
-        run: |
-          echo "Hello"
+          ssh-keyscan -H your_server_ip >> ~/.ssh/known_hosts  # Replace with your server's IP or hostname
+          ssh -i ~/.ssh/id_rsa user@your_server_ip << 'EOF'
+          cd /path/to/your/app
+          git pull origin main
+          npm install
+          npm run build
+          pm2 restart app_name
+          EOF
