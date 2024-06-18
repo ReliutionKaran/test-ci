@@ -1,35 +1,23 @@
-name: Deploy to Ubuntu Server
+name: Deploy to Server
 
 on:
   push:
-    branches: main 
+    branches:
+      - main  # Adjust to your main branch name
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Or a suitable image for your tasks
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3  # Check out code from the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: "Install SSH key"
-        run: |
-          mkdir -p ~/.ssh  # Ensure the .ssh directory exists
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key  
-          chmod 600 ~/.ssh/deploy_key 
-          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts 
-          eval "$(ssh-agent -s)"  
-          ssh-add ~/.ssh/deploy_key
-          ssh-add -l  
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.5
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: "Deploy to server"
+      - name: Deploy to Server
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-          cd /opt/test-ci/test-ci
-          pwd
-          GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=accept-new' git pull origin main
-          EOF
-
-      - name: "Post-deployment actions"
-        run: |
-          echo "Deployment and service restart successful"
-          echo "Pass!"
+         echo "hello"
