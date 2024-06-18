@@ -17,15 +17,16 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key  
           chmod 600 ~/.ssh/deploy_key 
           echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/deploy_key.pub 
-          chmod 644 ~/.ssh/deploy_key.pub  # Set proper permissions
+          chmod 644 ~/.ssh/deploy_key.pub  
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts 
           eval "$(ssh-agent -s)"  
-          ssh-add ~/.ssh/deploy_key  
+          ssh-add ~/.ssh/deploy_key
+          ssh-add ~/.ssh/deploy_key.pub
           ssh-add -l  
 
       - name: "Deploy to server"
         run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          ssh -i ~/.ssh/deploy_key.pub -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             cd /opt/test-ci/test-ci
             GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main 
             sudo systemctl restart odoo
