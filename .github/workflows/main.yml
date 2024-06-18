@@ -22,11 +22,12 @@ jobs:
           ssh-add -l  
 
       - name: "Deploy to server"
-        uses: appleboy/ssh-action@master  
-        with:
-          host: ${{ secrets.SERVER_IP }} 
-          username: ${{ secrets.SERVER_USER }}  
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+            cd /opt/test-ci/test-ci
+            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main 
+            sudo systemctl restart odoo
+          EOF
 
       - name: "Post-deployment actions"
         run: |
