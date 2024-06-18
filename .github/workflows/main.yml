@@ -21,9 +21,9 @@ jobs:
       - name: Deploy over SSH
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 << 'EOF'
-            eval $(ssh-agent)
-            ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+            eval $(ssh-agent -s)
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
             git config --global --add safe.directory /opt/test-ci
             cd /opt/test-ci
-            git pull origin main
+            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main
           EOF
