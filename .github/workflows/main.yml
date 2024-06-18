@@ -20,8 +20,10 @@ jobs:
 
       - name: Set up SSH agent
         run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
           eval "$(ssh-agent -s)"
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 --decode | tr -d '\r' | ssh-add -
+          ssh-add private_key
 
       - name: Configure git
         run: git config --global --add safe.directory /opt/test-ci/test-ci
