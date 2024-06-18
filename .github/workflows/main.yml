@@ -3,7 +3,7 @@ name: Deploy to Server via SSH
 on:
   push:
     branches:
-      - main  # Adjust to your main branch name
+      - main
 
 jobs:
   deploy:
@@ -20,4 +20,7 @@ jobs:
 
       - name: Deploy over SSH
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 "echo 'Hello'"
+          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 "
+            cd /opt/test-ci/test-ci &&
+            git pull origin main 
+          "
