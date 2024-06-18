@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+
+    <t t-name="OrderListScreen" t-inherit="sh_pos_order_list.OrderListScreen" t-inherit-mode="extension">
+        <!-- <xpath expr="//td[hasclass('sh_colspan_11_inner_table')]" position="attributes">
+            <attribute name="t-attf-colspan">15</attribute>
+        </xpath> -->
+        <xpath expr="//th[hasclass('sh_orderlist_state_th')]" position="before">
+            <t t-if="pos.config.user_type == 'receive' or pos.config.user_type == 'both'">
+                <th class="sh_sender_th">Sender</th>
+            </t>
+            <t t-if="pos.config.user_type == 'send' or pos.config.user_type == 'both'">
+                <th class="sh_receiver_th">Receiver</th>
+            </t>
+        </xpath>
+        <xpath expr="//td[hasclass('sh_orderlist_state_td')]" position="before">
+            <t t-if="pos.config.user_type == 'receive' or pos.config.user_type == 'both'">
+                <td class="sh_sender_td">
+                    <t t-if="order[0].sender_config">
+                        <t t-if="order[0].sender_config">
+                            <t t-if="order[0].sender_config and pos.db.config_by_id[order[0].sender_config] and pos.db.config_by_id[order[0].sender_config].sh_nick_name">
+                                <t t-esc="pos.db.config_by_id[order[0].sender_config].sh_nick_name" />
+                            </t>
+                            <t t-else="">
+                                <t t-if="order[0] and order[0].sender_config and order[0].sender_config and pos.db.config_by_id[order[0].sender_config] and pos.db.config_by_id[order[0].sender_config].name">
+                                    <t t-esc="pos.db.config_by_id[order[0].sender_config].name" />
+                                </t>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <t t-if="pos.db.config_by_id[order[0].config_id[0]] and pos.db.config_by_id[order[0].config_id[0]].sh_nick_name">
+                                <t t-esc="pos.db.config_by_id[order[0].config_id[0]].sh_nick_name" />
+                            </t>
+                            <t t-else="">
+                                <t t-if="order[0] and order[0].config_id and order[0].config_id[0] and pos.db.config_by_id[order[0].config_id[0]] and pos.db.config_by_id[order[0].config_id[0]].name">
+                                    <t t-esc="pos.db.config_by_id[order[0].config_id[0]].name" />
+                                </t>
+                            </t>
+                        </t>
+                    </t>
+                </td>
+            </t>
+            <t t-if="pos.config.user_type == 'send' or pos.config.user_type == 'both'">
+                <td class="sh_receiver_td">
+                    <t t-if="order[0].assigned_config">
+                        <t t-foreach="order[0].assigned_config" t-as="each_config" t-key="each_config.id">
+                            <div class="sh_assigned_config">
+                                <t t-if="pos.db.config_by_id and pos.db.config_by_id[each_config] and pos.db.config_by_id[each_config].sh_nick_name">
+                                    <t t-esc="pos.db.config_by_id[each_config].sh_nick_name" />
+                                </t>
+                                <t t-else="">
+                                    <t t-if="each_config and pos.db.config_by_id[each_config] and pos.db.config_by_id[each_config].name">
+                                        <t t-esc="pos.db.config_by_id[each_config].name" />
+                                    </t>
+                                </t>
+                            </div>
+                        </t>
+                    </t>
+                </td>
+            </t>
+        </xpath>
+        <!-- <xpath expr="//table[hasclass('sh_order_list')]//thead//tr" position="inside">
+            <t t-if="pos.config.sh_allow_payment">
+                <th class="sh_payment_icon_th"></th>
+            </t>
+            <t t-if="pos.config.sh_allow_edit">
+                <th class="sh_edit_icon_th"></th>
+            </t>
+
+            <t t-if="pos.config.sh_allow_cancel">
+                <th class="sh_cancel_icon_th"></th>
+            </t>
+        </xpath> -->
+        <xpath expr="//td[hasclass('sh_orderlist_print_order_td')]" position="inside">
+            <t t-if="pos.config.sh_allow_payment">
+                <!-- <td class="sh_payment_icon_td"> -->
+                    <t t-if="order[0].state == 'draft'">
+                        <i class="fa fa-money pay_order" aria-hidden="true" t-on-click="pay_pos_order"></i>
+                    </t>
+                <!-- </td> -->
+            </t>
+
+            <t t-if="pos.config.sh_allow_edit">
+                <!-- <td class="sh_edit_icon_td"> -->
+                    <t t-if="order[0].state == 'draft'">
+                        <i class="fa fa-pencil-square-o edit_order" aria-hidden="true" t-on-click="edit_pos_order"></i>
+                    </t>
+                <!-- </td> -->
+            </t>
+
+            <t t-if="pos.config.sh_allow_cancel">
+                <!-- <td class="sh_cancel_icon_td"> -->
+                    <t t-if="order[0].state == 'draft'">
+                        <i class="fa fa-times" aria-hidden="true" t-on-click="cancel_pos_order"></i>
+                    </t>
+                <!-- </td> -->
+            </t>
+        </xpath>
+        <xpath expr="//select[hasclass('sh_pos_order_filter')]" position="inside">
+            <option value="draft">Draft</option>
+        </xpath>
+    </t>
+
+</templates>

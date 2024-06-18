@@ -1,0 +1,152 @@
+body.pos {
+	.sh_order_sync_modal_dialog_popup {
+		.main_div_sh_statement {
+			height: 220px;
+			max-height: 220px;
+			overflow: auto;
+			.sh_select_session {
+				.session_table {
+					width: 100%;
+					.session_row {
+						&:nth-child(odd) {
+							background: #E0E2E6;
+						}
+						&:nth-child(even) {
+							background: #FFFFFF;
+						}
+						td {
+							font-size: 16px;
+							font-weight: normal;
+							padding: 10px;
+							color: #4A4F59;
+							word-break: break-word;
+						}
+						&:hover {
+							td {
+								color: #fff;
+								background: $o-brand-primary;
+								cursor: pointer;
+							}
+						}
+					}
+					.session_row.highlight {
+						td {
+							color: #fff;
+							background: $o-brand-primary;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+	}
+    .pos-content {
+		.shorderlist-screen.screen {
+			.sh_full_content_service_management.sh_order_list_full_content {
+                @include media-breakpoint-down (lg){
+                    overflow: auto !important;
+                }
+                .table.sh_order_list  {
+                    @include media-breakpoint-down (lg){
+                        word-break: unset !important; 
+                        white-space: nowrap !important;
+                    }
+                    thead {
+                        th.sh_orderlist_name_th {
+                            width: 12% !important;
+                        }
+                        th.sh_orderlist_ref_th {
+                            width: 14% !important;
+                        }
+                        th.sh_orderlist_cust_th {
+                            width: 17% !important;
+                        }
+                        th.sh_orderlist_date_th {
+                            width: 12% !important;
+                            text-align: center;
+                        }
+                        th.sh_orderlist_total_th {
+                            width: 10% !important;
+                            text-align: center;
+                        }
+                        th.sh_receiver_th {
+                            width: 9% !important;
+                            text-align: center;
+                        }
+                        th.sh_sender_th {
+                            width: 9% !important;
+                            text-align: center;
+                        }
+                        th.sh_payment_icon_th {
+                            width: 3% !important;
+                            text-align: center;
+                            
+                        }
+                        th.sh_edit_icon_th {
+                            width: 3% !important;
+                            text-align: center;
+                        }
+                        th.sh_cancel_icon_th {
+                            width: 3% !important;
+                            text-align: center;
+                        }
+                    }
+                    tbody{
+                        td.sh_orderlist_name_td {
+                            width: 12% !important;
+                        }
+                        td.sh_orderlist_ref_td {
+                            width: 14% !important; 
+                        }
+                        td.sh_orderlist_customer_td {
+                            width: 17% !important;
+                        }
+                        td.sh_orderlist_date_td {
+                            width: 12% !important;
+                            text-align: center;
+                        }
+                        td.sh_orderlist_total_td {
+                            width: 10% !important;
+                            text-align: center;
+                        }
+                        td.sh_receiver_td {
+                            width: 9% !important;
+                            text-align: center;
+                        }
+                        td.sh_sender_td {
+                            width: 9% !important;
+                            text-align: center;
+                        }
+                        td.sh_payment_icon_td {
+                            width: 3% !important;
+                            text-align: center;
+                        }
+                        td.sh_edit_icon_td {
+                            width: 3% !important;
+                            text-align: center;
+                        }
+                        td.sh_cancel_icon_td {
+                            width: 3% !important;
+                            text-align: center;
+                        }
+                    }
+                    .pay_order, .edit_order{
+                        margin: 0px 6px !important;
+                    }
+                    .template-list-contents {
+                        td.sh_orderlist_print_order_td {
+                            display: revert;
+                        }
+                    }
+                }
+			}
+		}
+	}
+}
+.show_save_button {
+    display: block !important;
+}
+.main_div_pos_session {
+    font-size: 16px;
+    font-weight: normal;
+}

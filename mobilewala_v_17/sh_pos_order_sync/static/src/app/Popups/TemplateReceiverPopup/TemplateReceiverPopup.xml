@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sh_pos_order_sync.TemplateReceiverPopup">
+
+        <div class="popup product-configurator-popup sh_order_sync_modal_dialog_popup">
+            <div class="modal-header">
+                <h4 class="modal-title title">
+                    Select Session
+                </h4>
+            </div>
+            <main class="modal-body main_div_sh_statement">
+                <div class="sh_select_session">
+                    <table class="session_table">
+                        <t t-if="pos.all_session">
+                            <t t-foreach="pos.all_session" t-as="each_session" t-key="each_session.config_id">
+                                <t t-if="each_session.config_id != pos.config.id">
+                                    <tr t-att-data-value="each_session.config_id" class="session_row" t-on-click="onClickSessionRow">
+                                        <td>
+                                            <t t-if="each_session.sh_nick_name">
+                                                <t t-esc="each_session.sh_nick_name" />
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="each_session.config_name" />
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </t>
+                    </table>
+                </div>
+            </main>
+
+            <div class="footer modal-footer">
+                <t t-if="pos.config.sh_allow_multiple_selection">
+                    <div class="button btn btn-lg btn-primary confirm highlight" t-on-click="confirm">
+                        Send
+                    </div>
+                </t>
+                <div class="button cancel  btn btn-lg " t-on-click="cancel">
+                    Cancel
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

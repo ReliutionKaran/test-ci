@@ -1,0 +1,223 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_pos_order_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-16 07:14+0000\n"
+"PO-Revision-Date: 2021-01-16 07:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " (  -  ) order has been created."
+msgstr "（ - ）訂單已創建。"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " (  -  ) order has been edited."
+msgstr "（ - ）訂單已被編輯。"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " (  -  ) order has been paid."
+msgstr "（ - ）訂單已支付。"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " order has been cancelled."
+msgstr "訂單已被取消。"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " order has been created."
+msgstr "訂單已創建。"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " order has been edited."
+msgstr "訂單已被編輯。"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/js/chrome.js:0
+#, python-format
+msgid " order has been paid."
+msgstr "訂單已經支付。"
+
+#. module: sh_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_sync.view_pos_config_form
+msgid "Allow Multiple Selection Of Receiver"
+msgstr "允許多次選擇接收器"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__sh_allow_multiple_selection
+msgid "Allow Multiple Selection of Validator"
+msgstr "允許多次選擇驗證器"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__sh_allow_cancel
+msgid "Allow To Cancel Order"
+msgstr "允許取消訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__sh_allow_edit
+msgid "Allow To Edit Order"
+msgstr "允許編輯訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__sh_allow_payment
+msgid "Allow To Pay Order"
+msgstr "允許支付訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_order__assigned_config
+msgid "Assigned Config"
+msgstr "分配配置"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/popup.xml:0
+#, python-format
+msgid "Cancel"
+msgstr "取消"
+
+#. module: sh_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_sync.view_pos_config_form
+msgid "Cancel Order From Order Screen"
+msgstr "從訂單屏幕取消訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__display_name
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_order__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: sh_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_sync.view_pos_config_form
+msgid "Display This Name In POS"
+msgstr "在POS中顯示此名稱"
+
+#. module: sh_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_sync.view_pos_config_form
+msgid "Edit Order From Order Screen"
+msgstr "從訂單屏幕編輯訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_order__floor_id
+msgid "Floor"
+msgstr "地面"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__id
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config____last_update
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr "最後修改了"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__sh_nick_name
+msgid "Nick Name"
+msgstr "暱稱"
+
+#. module: sh_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_sync.view_pos_config_form
+msgid "Order Sync"
+msgstr "訂單同步"
+
+#. module: sh_pos_order_sync
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_sync.view_pos_config_form
+msgid "Pay Order From Order Screen"
+msgstr "訂單屏幕訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model,name:sh_pos_order_sync.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "銷售點配置"
+
+#. module: sh_pos_order_sync
+#: model:ir.model,name:sh_pos_order_sync.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "銷售點訂單"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields.selection,name:sh_pos_order_sync.selection__pos_config__user_type__receive
+msgid "Receive"
+msgstr "收到"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/screen.xml:0
+#, python-format
+msgid "Receiver"
+msgstr "接收者"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/action_button.xml:0
+#, python-format
+msgid "Save"
+msgstr "節省"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/popup.xml:0
+#, python-format
+msgid "Select Session"
+msgstr "選擇會話"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/popup.xml:0
+#: model:ir.model.fields.selection,name:sh_pos_order_sync.selection__pos_config__user_type__send
+#, python-format
+msgid "Send"
+msgstr "發送"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields.selection,name:sh_pos_order_sync.selection__pos_config__user_type__both
+msgid "Send / Receive"
+msgstr "發送/接收"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/action_button.xml:0
+#, python-format
+msgid "Send Order"
+msgstr "發送訂單"
+
+#. module: sh_pos_order_sync
+#. openerp-web
+#: code:addons/sh_pos_order_sync/static/src/xml/screen.xml:0
+#, python-format
+msgid "Sender"
+msgstr "發件人"
+
+#. module: sh_pos_order_sync
+#: model:ir.model.fields,field_description:sh_pos_order_sync.field_pos_config__user_type
+msgid "User Type"
+msgstr "用戶類型"

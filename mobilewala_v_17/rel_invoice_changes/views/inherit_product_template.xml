@@ -1,0 +1,27 @@
+<odoo>
+    <!--inherited product.product view-->
+    <record id="view_custom_product_form" model="ir.ui.view">
+        <field name="name">custom.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='taxes_id']" position="after">
+                <field name="warranty_id"/>
+                <field name="color_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--inherited product.template view-->
+    <record id="view_custom_product_template_form" model="ir.ui.view">
+        <field name="name">custom.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <field name="warranty_id"/>
+                <field name="color_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

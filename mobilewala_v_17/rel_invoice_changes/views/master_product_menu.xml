@@ -1,0 +1,59 @@
+<odoo>
+
+    <!--Menu for Warranty-->
+    <record id="action_view_list_product_warranty" model="ir.actions.act_window">
+        <field name="name">Product Warranty</field>
+        <field name="res_model">rel.warranty</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="warranty_sub_menu"
+              name="Product Warranty"
+              parent="point_of_sale.pos_config_menu_catalog"
+              action="action_view_list_product_warranty"
+              sequence="13"/>
+
+    <!--Menu for Color-->
+    <record id="action_view_list_product_color" model="ir.actions.act_window">
+        <field name="name">Product Color</field>
+        <field name="res_model">rel.color</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="color_sub_menu"
+              name="Product Color"
+              parent="point_of_sale.pos_config_menu_catalog"
+              action="action_view_list_product_color"
+              sequence="14"/>
+
+    <!--form view for color-->
+    <record id="color_menu_form_view" model="ir.ui.view">
+        <field name="name">color.menu.form.view</field>
+        <field name="model">rel.color</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--form view for warranty-->
+    <record id="warranty_menu_form_view" model="ir.ui.view">
+        <field name="name">warranty.menu.form.view</field>
+        <field name="model">rel.warranty</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="warranty"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

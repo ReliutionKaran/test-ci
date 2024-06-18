@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sh_pos_order_sync.SaveOrderButton">
+        <button class="control-button btn btn-light rounded-0 fw-bolder" t-if="pos and pos.get_order() and pos.get_order().is_edit" t-on-click="() => this.onClick()">
+            <span class="send_icon fa fa-floppy-o" />
+            <a>
+                Save
+            </a>
+        </button>
+    </t>
+</templates>

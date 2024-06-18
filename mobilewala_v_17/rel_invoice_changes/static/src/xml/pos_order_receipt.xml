@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="view_pos_order_receipt" xml:space="preserve">
+    <t t-name="custom_invoice.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//ReceiptHeader" position="after">
+            <div class="mb-4" style="display: flex; justify-content: center; align-items: center;">
+                <t t-if="props.data.current_order.partner">
+                <table style="border-collapse: separate; border-spacing: 10px;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span><strong>Customer : </strong></span>
+                            </td>
+                            <td>
+                                <span t-esc="props.data.current_order.partner.name"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>
+
+

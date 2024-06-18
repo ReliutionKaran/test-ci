@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sh_pos_order_sync.SendOrderButton">
+        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.onClick()">
+            <span class="fa fa-paper-plane send_icon" />
+            <a>
+                Send Order
+            </a>
+        </button>
+    </t>
+</templates>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="invoice_report_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//thead/tr/th[@name='th_quantity']" position="before">
+            <th name="th_warranty" class="text-start">
+                <span>Warranty</span>
+            </th>
+        </xpath>
+        <xpath expr="//tbody/t/tr/t/td[@name='td_quantity']" position="before">
+            <td name="td.warranty">
+                <span t-field="line.warranty_id"/>
+            </td>
+        </xpath>
+
+        <xpath expr="//div/span[@id='payment_terms_note_id']" position="before">
+            <div class="mb-2">
+                <span>
+                    <strong>GSTIN No. :</strong>
+                </span>
+                <span t-field="o.company_id.vat"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div/p[@name='payment_communication']" position="replace">
+            <table name="bank_detail" class="table-borderless">
+                <tbody class="invoice_tbody">
+                    <tr>
+                        <td style="padding: 3px;">
+                            <strong>Bank Name :</strong>
+                        </td>
+                        <td>
+                            <span t-field="o.partner_bank_id.bank_id.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 3px;">
+                            <strong>Bank A/c. No :</strong>
+                        </td>
+                        <td>
+                            <span t-field="o.partner_bank_id.acc_number"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 3px;">
+                            <strong>RTGS/IFSC Code :</strong>
+                        </td>
+                        <td>
+                            <span t-field="o.partner_bank_id.bank_id.bic"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <footer>
+                <div class="mt-5">
+                    <hr/>
+                    <div class="row">
+                        <div class="col-8">
+                            <span style="display:block;" class="mb-3">
+                                <strong>Term &amp; Condition :</strong>
+                            </span>
+                            <span t-field="o.company_id.term_and_condition"/>
+                        </div>
+                        <div class="col-4">
+                            <div style="float: right; margin-right:5px;">
+                                <t t-if="o.company_id.company_logo">
+                                    <span style="display:block;" class="mb-2">For,
+                                        <span t-field="o.company_id.name"/>
+                                    </span>
+
+                                    <img t-att-src="image_data_uri(o.company_id.company_logo)" alt="Logo"
+                                         style="height:100px;width:120px;"/>
+                                    <span style="font-size:15px; display:block;" class="mt-2">(Authorised Signatory)
+                                    </span>
+                                </t>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+        </xpath>
+    </template>
+
+
+</odoo>
