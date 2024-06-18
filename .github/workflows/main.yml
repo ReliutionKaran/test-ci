@@ -23,10 +23,10 @@ jobs:
 
       - name: "Deploy to server"
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-            cd /opt/test-ci/test-ci
-            pwd
-            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git pull origin main 
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          cd /opt/test-ci/test-ci
+          pwd
+          GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=accept-new' git pull origin main
           EOF
 
       - name: "Post-deployment actions"
