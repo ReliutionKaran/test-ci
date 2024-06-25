@@ -24,7 +24,7 @@ jobs:
             eval $(ssh-agent -s)
             echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
             cd /opt/
-            rm -rf test-ci
+            sudo rm -rf test-ci
             git clone git@github.com:ReliutionKaran/test-ci.git
             git config --global --add safe.directory /opt/test-ci
             sudo systemctl status metabase.service
