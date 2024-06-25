@@ -25,6 +25,7 @@ jobs:
             echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
             cd /opt/
             sudo rm -rf test-ci
+            cd /opt/
             git clone git@github.com:ReliutionKaran/test-ci.git
             git config --global --add safe.directory /opt/test-ci
             sudo systemctl status metabase.service
