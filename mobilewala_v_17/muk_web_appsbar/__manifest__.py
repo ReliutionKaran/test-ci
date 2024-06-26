@@ -18,11 +18,6 @@
         'base_setup',
         'web',
     ],
-    'data': [
-        'templates/webclient.xml',
-        'views/res_users.xml',
-        'views/res_config_settings.xml',
-    ],
     'assets': {
         'web._assets_primary_variables': [
             'muk_web_appsbar/static/src/scss/variables.scss',
