@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy over SSH
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@13.232.144.161 << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ SERVER_USER }}@${{ SERVER_IP }} << 'EOF'
             eval $(ssh-agent -s)
             echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
             echo "Welcome to SERVER"
