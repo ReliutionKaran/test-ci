@@ -1,6 +1,6 @@
 {
     'name': 'MuK AppsBar', 
-    'summary': 'Adds a sidebar to the main screen',
+    'summary': 'Testing pipeline',
     'description': '''
         This module adds a sidebar to the main screen. The sidebar has a list
         of all installed apps similar to the home menu to ease navigation.
