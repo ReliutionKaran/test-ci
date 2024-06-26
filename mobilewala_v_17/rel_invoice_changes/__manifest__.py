@@ -1,6 +1,6 @@
 {
     'name': 'Invoice Changes',
-    'summary': 'Custom Invoice',
+    'summary': 'Customer invoice',
     'version': '17.1',
     'sequence': '1',
     'depends': [
