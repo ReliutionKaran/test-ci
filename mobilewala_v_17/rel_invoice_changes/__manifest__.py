@@ -1,5 +1,5 @@
 {
-    'name': 'Invoice Changes',
+    'name': 'Pipeline Testing',
     'summary': 'Customer invoice',
     'version': '17.1',
     'sequence': '1',
