@@ -4,6 +4,6 @@
           name="Import BoM"
           parent="mrp.menu_mrp_bom"
           action="import_bom.action_import_bom_wizard"
-          sequence="5534567800"/>
+          sequence="5534561111111111111111111117800"/>
     <path expr="File.py"/>
 </odoo>
