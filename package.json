@@ -9,8 +9,8 @@
   "author": "",
   "license": "",
   "dev": {
-    "@eslint/compat": "^1.0.1",
-    "@eslint/js": "^9.3.0",
-    "eslint": "^9.3.0"
+    "@eslint/compat": "1.0.1",
+    "@eslint/js": "9.3.0",
+    "eslint": "4.0.0"
   }
 }
