@@ -1,11 +1,9 @@
 name: Deploy to Server via SSH
 
 on:
-  pull_request:
+  push:
     branches:
       - dev_testing
-    types:
-      - Merged
 
 jobs:
   deploy:
