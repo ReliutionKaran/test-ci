@@ -4,7 +4,7 @@
   "description": "## Getting started",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exitorium 1"
+    "test": "echo \"Error: no test specified\" && exitorium 34567 1"
   },
   "author": "",
   "license": "",
